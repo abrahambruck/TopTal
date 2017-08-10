@@ -8,4 +8,5 @@
 @ins_tax_agency;
 @ins_tax_payment_ind;
 @ins_tax_payment_corp;
-
+@ins_TMP_BUSINESS_OWNER;
+@ins_TMP_TAXPAYER_CORP;

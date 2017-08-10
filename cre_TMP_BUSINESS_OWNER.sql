@@ -16,4 +16,6 @@ no_email           varchar2(40),
 no_home_phone      varchar2(15),
 no_cell_phone      varchar2(15),
 no_fax             varchar2(15)
+no_owner_id        number 
 );
+

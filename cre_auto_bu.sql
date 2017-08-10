@@ -1,6 +1,7 @@
---  @cre_auto_bu
+--  @cre_auto_bu.sql
 --
---conn sys/manager@orcl as sysdba
+CREATE or replace DIRECTORY dmpdir AS 'C:\Users\Public';
+-- SELECT directory_path FROM dba_directories WHERE directory_name = 'DMPDIR';
 BEGIN
   dbms_scheduler.drop_job(job_name => 'EXP_DB');
 EXCEPTION WHEN others THEN
@@ -11,16 +12,16 @@ BEGIN
 DBMS_SCHEDULER.create_job (
 job_name => 'EXP_DB',
 job_type => 'executable',
-job_action => 'expdp abraham/bruck@orcl content=ALL FULL=Y dumpfile=oraTopTal.dmp',
+job_action => 'C:\Windows\system32\cmd.exe /c c:\Users\Public\export_db.bat',
 start_date => SYSTIMESTAMP,
 repeat_interval => 'FREQ=HOURLY; INTERVAL=2;',
 end_date => NULL,
 enabled => TRUE,
-comments => 'export_db_every_2 hours');
+comments => 'export_db_every 2 hour');
 END;
 /
---BEGIN 
---DBMS_SCHEDULER.RUN_JOB('EXP_DB');
---END;
---/
-conn abraham/bruck@orcl
+BEGIN 
+DBMS_SCHEDULER.RUN_JOB('EXP_DB');
+END;
+/
+

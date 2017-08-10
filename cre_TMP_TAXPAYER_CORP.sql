@@ -15,5 +15,7 @@ nc_postal_code     varchar2(10),
 nc_email           varchar2(40),
 nc_home_phone      varchar2(15),
 nc_cell_phone      varchar2(15),
-nc_fax             varchar2(15)
+nc_fax             varchar2(15),
+nc_owner_id        number        not null
 );
+
